@@ -1,8 +1,24 @@
 import * as React from "react";
+import styled from "../theme/styled";
 
-class Button extends React.Component {
+interface IProps {
+  /**
+   * CSS properties
+   */
+  style?: React.CSSProperties;
+}
+
+const StyledButton = styled("button")`
+  color: ${props => props.theme.red};
+`;
+
+class Button extends React.Component<IProps> {
   render() {
-    return <button>{this.props.children}</button>;
+    return (
+      <StyledButton style={this.props.style}>
+        {this.props.children}
+      </StyledButton>
+    );
   }
 }
 
